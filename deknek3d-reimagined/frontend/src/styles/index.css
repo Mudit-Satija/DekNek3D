@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+	color-scheme: light;
+	--app-accent: #22d3ee;
+	--app-font-scale: 1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background: #f5f7fb;
+	color: #111827;
+	font-size: calc(16px * var(--app-font-scale));
+}
+
+a,
+.app-accent {
+	color: var(--app-accent);
+}
+
+/* Make accent updates visible across existing Tailwind color utility classes. */
+.text-cyan-200,
+.text-cyan-300,
+.text-cyan-400,
+.text-sky-400 {
+	color: var(--app-accent) !important;
+}
+
+.bg-cyan-400,
+.bg-cyan-500 {
+	background-color: var(--app-accent) !important;
+}
+
+.from-cyan-400,
+.from-cyan-500,
+.via-cyan-400,
+.to-cyan-400 {
+	--tw-gradient-from: var(--app-accent) var(--tw-gradient-from-position) !important;
+	--tw-gradient-to: color-mix(in oklab, var(--app-accent), black 25%) var(--tw-gradient-to-position) !important;
+}
+
+.ring-cyan-400,
+.ring-cyan-400\/30,
+.ring-cyan-400\/40 {
+	--tw-ring-color: color-mix(in oklab, var(--app-accent), transparent 55%) !important;
+}
+
+.accent-cyan-400 {
+	accent-color: var(--app-accent) !important;
+}
+
+.theme-light {
+	background: #f3f7ff;
+	color: #0f172a;
+}
+
+.theme-light [class*="bg-slate-950"] {
+	background-color: rgba(248, 250, 252, 0.96) !important;
+}
+
+.theme-light [class*="text-white"] {
+	color: #0f172a !important;
+}
+
+.theme-light [class*="text-slate-300"],
+.theme-light [class*="text-slate-400"] {
+	color: #334155 !important;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+	animation: none !important;
+	transition: none !important;
+	scroll-behavior: auto !important;
+}
+
+.backdrop-blur-glass {
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+}
+
+.backdrop-blur-deep {
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+}
+
+.pricing-shimmer {
+	border-radius: 2rem;
+	filter: blur(18px);
+	animation: shimmer-border 8s linear infinite;
+	opacity: 0.35;
+	transform: scale(1.08);
+	z-index: 0;
+}
+
+.pricing-bg-pattern {
+	background-image:
+		radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18) 0, transparent 22%),
+		radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.16) 0, transparent 22%),
+		radial-gradient(circle at 50% 80%, rgba(34, 211, 238, 0.12) 0, transparent 24%),
+		linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+	background-size: auto, auto, auto, 56px 56px, 56px 56px;
+	background-position: center;
+	animation: pattern-drift 18s linear infinite;
+}
+
+@keyframes shimmer-border {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes pattern-drift {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	50% {
+		transform: translate3d(-18px, 12px, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes logo-float {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	50% {
+		transform: translate3d(0, -5px, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+	.login-particles {
+		background-image:
+			radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 0 1px, transparent 1.6px),
+			radial-gradient(circle at 30% 80%, rgba(34, 211, 238, 0.25) 0 1.2px, transparent 1.8px),
+			radial-gradient(circle at 55% 35%, rgba(168, 85, 247, 0.22) 0 1.1px, transparent 1.7px),
+			radial-gradient(circle at 78% 18%, rgba(96, 165, 250, 0.22) 0 1px, transparent 1.6px),
+			radial-gradient(circle at 92% 72%, rgba(255, 255, 255, 0.16) 0 1.1px, transparent 1.7px);
+		background-size: 420px 420px;
+		animation: login-particles-drift 24s linear infinite;
+		pointer-events: none;
+		filter: blur(0.2px);
+	}
+
+	.signup-particles {
+		background-image:
+			radial-gradient(circle at 12% 16%, rgba(250, 204, 21, 0.22) 0 1px, transparent 1.6px),
+			radial-gradient(circle at 28% 84%, rgba(244, 114, 182, 0.24) 0 1.2px, transparent 1.8px),
+			radial-gradient(circle at 56% 26%, rgba(34, 211, 238, 0.24) 0 1.1px, transparent 1.7px),
+			radial-gradient(circle at 76% 18%, rgba(167, 139, 250, 0.22) 0 1.1px, transparent 1.7px),
+			radial-gradient(circle at 90% 72%, rgba(52, 211, 153, 0.2) 0 1.1px, transparent 1.7px);
+		background-size: 360px 360px;
+		animation: signup-particles-drift 22s linear infinite;
+		pointer-events: none;
+		filter: blur(0.2px);
+	}
+
+	@keyframes login-particles-drift {
+		0% {
+			background-position: 0 0;
+		}
+		100% {
+			background-position: 180px -240px;
+		}
+	}
+
+	@keyframes signup-particles-drift {
+		0% {
+			background-position: 0 0;
+		}
+		100% {
+			background-position: -160px -220px;
+		}
+	}
+
